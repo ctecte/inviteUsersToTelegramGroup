@@ -35,4 +35,16 @@ usernames = df['<your column name>'].dropna().tolist()
 
 ### Adjust the excel_sheet variable as needed to the name of your .xlsx
 
-Run bot
+### Recommended to run the bot in a virtual environment
+
+```
+python -m venv venv
+venv\Scripts\activate
+pip install -r requirements.txt
+python bot.py
+
+# deactivate
+# type that to exit venv 
+```
+
+
