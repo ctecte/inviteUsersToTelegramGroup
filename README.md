@@ -50,6 +50,7 @@ await client.send_message(username, f"Hi! Please join the group {target_group}")
 
 # Recommended to run the bot in a virtual environment
 Run commands one by one
+Windows
 ```
 python -m venv venv
 venv\Scripts\activate
@@ -61,6 +62,17 @@ python bot.py
 deactivate
 ```
 
+Linux/Mac(?)
+```
+python -m venv venv
+venv/bin/activate
+pip install -r requirements.txt
+python bot.py
+
+# type to exit venv
+deactivate
+```
+
 #### Side note:
 To get this to work as non admin
 remove these 2 lines and fix the indentation accordingly
@@ -69,6 +81,7 @@ result = await client(InviteToChannelRequest(group,[user]))
 if (result.missing_invitees):
 ```
 This will send just the invite link to everybody and not attempt to add people to group
+
 
 
 
