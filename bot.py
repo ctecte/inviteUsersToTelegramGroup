@@ -18,8 +18,11 @@ target_group = "https://t.me/+WkbWpk5GSDU4ZTA1"
 df = pd.read_excel(excel_file)
 usernames = df['usernames'].dropna().tolist()
 
-for user in usernames:
-    user = user.lstrip("@")
+# this doesnt work cuz python moment
+# for user in usernames:
+#     user = user.lstrip("@")
+
+usernames = [user.strip().lstrip("@") for user in usernames]
 
 client = TelegramClient("Test session", api_id, api_hash)
 
