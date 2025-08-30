@@ -22,7 +22,11 @@ usernames = df['usernames'].dropna().tolist()
 # for user in usernames:
 #     user = user.lstrip("@")
 
-usernames = [user.strip().lstrip("@") for user in usernames]
+
+usernames = [user.strip() for user in usernames]
+
+# uncomment the line below to strip the '@' from username in output, does not affect invites
+# usernames = [user.strip().lstrip("@") for user in usernames]
 
 client = TelegramClient("Test session", api_id, api_hash)
 
