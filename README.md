@@ -48,7 +48,7 @@ You can adjust this invite message if the user cannot be added to group
 await client.send_message(username, f"Hi! Please join the group {target_group}")
 ```
 
-### Recommended to run the bot in a virtual environment
+# Recommended to run the bot in a virtual environment
 Run commands one by one
 ```
 python -m venv venv
@@ -69,6 +69,7 @@ result = await client(InviteToChannelRequest(group,[user]))
 if (result.missing_invitees):
 ```
 This will send just the invite link to everybody and not attempt to add people to group
+
 
 
 
