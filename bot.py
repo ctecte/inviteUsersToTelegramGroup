@@ -2,6 +2,7 @@ import configparser
 import pandas as pd
 from telethon import TelegramClient
 from telethon.tl.functions.channels import InviteToChannelRequest
+from telethon.errors import UserPrivacyRestrictedError, UserNotMutualContactError
 import asyncio
 import openpyxl
 
@@ -34,9 +35,20 @@ async def main():
             print(f"Sent invite {username} to {target_group}")
 
             await asyncio.sleep(3)
-        except Exception as e:
-            print(f"Failed to invite {username}: {e}")
+        except (UserNotMutualContactError, UserPrivacyRestrictedError) as e:
+            print(f"Failed to invite {username}: {e}\n")
+            print(f"Attemtping to send invite link..")
+            
+            try:
+                await client.send_message(username, f"Hi! Please join the group {target_group}")
+                print(f"sent invite to {username}")
 
+                await asyncio.sleep(3)
+            except Exception as e:
+                print(f"erm, failed to send invite to {username}: {e}")
+        except Exception as e:
+            print(f"hey wtf happened man: {e}")
+    
 with client:
     client.loop.run_until_complete(main())
 
