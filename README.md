@@ -1,6 +1,6 @@
 # Use instructions
 
-THIS ONLY WORKS FOR SUPERGROUPS
+THIS ONLY WORKS FOR SUPERGROUPS. Uses your own account to add people. Could result in your account being flagged for spam, so do not remove the await asyncio.sleep() calls
 
 A 1 minute video on making a group into a supergroup:
 https://www.youtube.com/watch?v=S1bQ3JF4ow0
@@ -43,8 +43,14 @@ Note: you must be an admin to add people. The script will NOT work if you are no
 target_group = "https://t.me/+WkbWpkABCDEFG"
 ```
 
-### Recommended to run the bot in a virtual environment
+You can adjust this invite message if the user cannot be added to group
+```
+await client.send_message(username, f"Hi! Please join the group {target_group}")
+```
 
+# Recommended to run the bot in a virtual environment
+Run commands one by one
+#### Windows
 ```
 python -m venv venv
 venv\Scripts\activate
@@ -56,14 +62,35 @@ python bot.py
 deactivate
 ```
 
+#### Linux/Mac
+```
+python -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+python bot.py
+
+# type to exit venv
+deactivate
+```
+
 #### Side note:
 To get this to work as non admin
 remove these 2 lines and fix the indentation accordingly
 ```
-            result = await client(InviteToChannelRequest(group,[user]))
-            if (result.missing_invitees):
+result = await client(InviteToChannelRequest(group,[user]))
+if (result.missing_invitees):
 ```
 This will send just the invite link to everybody and not attempt to add people to group
+
+
+
+
+
+
+
+
+
+
 
 
 
