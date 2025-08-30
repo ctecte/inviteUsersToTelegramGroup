@@ -31,21 +31,28 @@ async def main():
     for username in usernames:
         try: 
             user = await client.get_entity(username)
-            await client(InviteToChannelRequest(group,[user]))
-            print(f"Sent invite {username} to {target_group}")
+            result = await client(InviteToChannelRequest(group,[user]))
+            print(f"Added {username} to {target_group}")
+            
+            # i have to click through 5 pages of redirect to find there is a property called missing_invitees WTF IS THIS SHIT
+            # For future reference
+            # https://tl.telethon.dev/constructors/messages/invited_users.html 
+            if (result.missing_invitees):
+                print(f"nevermind, failed to add. Trying to send invite link to {username}")
+                try:
+                    await client.send_message(username, f"Hi! Please join the group {target_group}")
+                    print(f"sent invite to {username}")
+
+                    await asyncio.sleep(3)
+                except Exception as e:
+                    print(f"erm, failed to send invite to {username}: {e}")
 
             await asyncio.sleep(3)
-        except (UserNotMutualContactError, UserPrivacyRestrictedError) as e:
-            print(f"Failed to invite {username}: {e}\n")
-            print(f"Attemtping to send invite link..")
+        # This doesnt work. The function literally doesnt even throw its own errors that it has listed in documentation
+        # except (UserNotMutualContactError, UserPrivacyRestrictedError) as e:
+        #     print(f"Failed to invite {username}: {e}\n")
+        #     print(f"Attemtping to send invite link..")
             
-            try:
-                await client.send_message(username, f"Hi! Please join the group {target_group}")
-                print(f"sent invite to {username}")
-
-                await asyncio.sleep(3)
-            except Exception as e:
-                print(f"erm, failed to send invite to {username}: {e}")
         except Exception as e:
             print(f"hey wtf happened man: {e}")
     
