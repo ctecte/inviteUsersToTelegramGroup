@@ -45,7 +45,7 @@ target_group = "https://t.me/+WkbWpkABCDEFG"
 
 You can adjust this invite message if the user cannot be added to group
 ```
-                    await client.send_message(username, f"Hi! Please join the group {target_group}")
+await client.send_message(username, f"Hi! Please join the group {target_group}")
 ```
 
 ### Recommended to run the bot in a virtual environment
@@ -65,10 +65,11 @@ deactivate
 To get this to work as non admin
 remove these 2 lines and fix the indentation accordingly
 ```
-            result = await client(InviteToChannelRequest(group,[user]))
-            if (result.missing_invitees):
+result = await client(InviteToChannelRequest(group,[user]))
+if (result.missing_invitees):
 ```
 This will send just the invite link to everybody and not attempt to add people to group
+
 
 
 
