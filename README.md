@@ -46,9 +46,11 @@ venv\Scripts\activate
 pip install -r requirements.txt
 python bot.py
 
-# deactivate
-# type that to exit venv 
+
+# type this to exit venv 
+deactivate
 ```
+
 
 
 
