@@ -43,8 +43,13 @@ Note: you must be an admin to add people. The script will NOT work if you are no
 target_group = "https://t.me/+WkbWpkABCDEFG"
 ```
 
-### Recommended to run the bot in a virtual environment
+You can adjust this invite message if the user cannot be added to group
+```
+                    await client.send_message(username, f"Hi! Please join the group {target_group}")
+```
 
+### Recommended to run the bot in a virtual environment
+Run commands one by one
 ```
 python -m venv venv
 venv\Scripts\activate
@@ -64,6 +69,7 @@ remove these 2 lines and fix the indentation accordingly
             if (result.missing_invitees):
 ```
 This will send just the invite link to everybody and not attempt to add people to group
+
 
 
 
