@@ -62,7 +62,7 @@ python bot.py
 deactivate
 ```
 
-Linux/Mac(?)
+Linux/Mac
 ```
 python -m venv venv
 venv/bin/activate
@@ -81,6 +81,7 @@ result = await client(InviteToChannelRequest(group,[user]))
 if (result.missing_invitees):
 ```
 This will send just the invite link to everybody and not attempt to add people to group
+
 
 
 
