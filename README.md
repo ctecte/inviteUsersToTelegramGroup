@@ -15,6 +15,18 @@ api_id=12345678
 api_hash=27c95073aa855asdfasfasdfasddf
 phone=+6581234567
 ```
+## In bot.py
+
+### Adjust the excel_sheet variable as needed to the name of your .xlsx
+```
+excel_file = "your_excel.xlsx"
+```
+
+### Set the target_group variable to the group invite link
+```
+target_group = "https://t.me/+WkbWpkABCDEFG"
+```
+
 
 Replace the content with your own details
 
@@ -33,11 +45,6 @@ or adjust the pd.read function with the column name
 usernames = df['<your column name>'].dropna().tolist()
 ```
 
-### Adjust the excel_sheet variable as needed to the name of your .xlsx
-```
-excel_file = "your_excel.xlsx"
-```
-
 ### Recommended to run the bot in a virtual environment
 
 ```
@@ -50,6 +57,7 @@ python bot.py
 # type this to exit venv 
 deactivate
 ```
+
 
 
 
