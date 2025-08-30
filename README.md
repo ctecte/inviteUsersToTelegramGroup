@@ -28,20 +28,19 @@ Your telegram password is also probably required
 
 ## In bot.py
 
-### Adjust the excel_sheet variable as needed to the name of your .xlsx
+### Adjust path to excel_sheet, and ensure column name with usernames is called "usernames"
 ```
 excel_file = "your_excel.xlsx"
 ```
+otherwise adjust the df[column_name] function 
+```
+usernames = df['<your_column_name>'].dropna().tolist()
+```
 
 ### Set the target_group variable to the group invite link
+Note: you must be an admin to add people. The script will NOT work if you are not admin.
 ```
 target_group = "https://t.me/+WkbWpkABCDEFG"
-```
-
-### Add the path to excel sheet and ensure the column name with usernames is just called "usernames"
-or adjust the pd.read function with the column name
-```
-usernames = df['<your column name>'].dropna().tolist()
 ```
 
 ### Recommended to run the bot in a virtual environment
@@ -57,7 +56,14 @@ python bot.py
 deactivate
 ```
 
-
+#### Side note:
+To get this to work as non admin
+remove these 2 lines and fix the indentation accordingly
+```
+            result = await client(InviteToChannelRequest(group,[user]))
+            if (result.missing_invitees):
+```
+This will send just the invite link to everybody and not attempt to add people to group
 
 
 
