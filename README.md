@@ -34,6 +34,9 @@ usernames = df['<your column name>'].dropna().tolist()
 ```
 
 ### Adjust the excel_sheet variable as needed to the name of your .xlsx
+```
+excel_file = "your_excel.xlsx"
+```
 
 ### Recommended to run the bot in a virtual environment
 
@@ -46,6 +49,7 @@ python bot.py
 # deactivate
 # type that to exit venv 
 ```
+
 
 
 
