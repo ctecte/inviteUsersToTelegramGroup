@@ -8,7 +8,7 @@ https://www.youtube.com/watch?v=S1bQ3JF4ow0
 <img width="602" height="549" alt="image" src="https://github.com/user-attachments/assets/1ae52a7b-67c6-4d51-8dd8-b62218f11bbd" />
 
 
-### create a file called config.ini, and replace add this inside
+### create a file called config.ini, and replace this inside
 ```
 [telegram]
 api_id=12345678
@@ -46,5 +46,6 @@ python bot.py
 # deactivate
 # type that to exit venv 
 ```
+
 
 
