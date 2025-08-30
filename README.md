@@ -1,8 +1,8 @@
 # Use instructions
 
 THIS ONLY WORKS FOR SUPERGROUPS
-A 1 minute video on making a group into a supergroup
 
+A 1 minute video on making a group into a supergroup:
 https://www.youtube.com/watch?v=S1bQ3JF4ow0
 
 <img width="602" height="549" alt="image" src="https://github.com/user-attachments/assets/1ae52a7b-67c6-4d51-8dd8-b62218f11bbd" />
@@ -50,6 +50,7 @@ python bot.py
 # type this to exit venv 
 deactivate
 ```
+
 
 
 
