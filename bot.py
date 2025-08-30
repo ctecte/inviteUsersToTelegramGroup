@@ -32,7 +32,9 @@ async def main():
         try: 
             user = await client.get_entity(username)
             result = await client(InviteToChannelRequest(group,[user]))
-            print(f"Adding {username} to group {target_group}...")
+
+            # uncomment this to see who is being added
+            # print(f"Adding {username} to group {target_group}...")
             
             # i have to click through 5 pages of redirect to find there is a property called missing_invitees WTF IS THIS SHIT
             # For future reference
@@ -41,13 +43,13 @@ async def main():
                 print(f"{username} has turned off 'add to group'. Trying to send invite link instead..")
                 try:
                     await client.send_message(username, f"Hi! Please join the group {target_group}")
-                    print(f"Succesfully sent invite to {username}")
+                    print(f"Invited {username}")
 
                     # await asyncio.sleep(3)
                 except Exception as e:
                     print(f"erm, failed to send invite to {username}: {e}")
             else:
-                print(f"Added {username} successfully")
+                print(f"{username} added successfully")
             await asyncio.sleep(3)
         # This doesnt work. The function literally doesnt even throw its own errors that it has listed in documentation
         # except (UserNotMutualContactError, UserPrivacyRestrictedError) as e:
