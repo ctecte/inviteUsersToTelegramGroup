@@ -38,6 +38,12 @@ otherwise adjust the df[column_name] function
 usernames = df['<your_column_name>'].dropna().tolist()
 ```
 
+If the usernames contain the @ symbol eg: @telegram_user,
+uncomment this line 
+```
+usernames = [user.strip().lstrip("@") for user in usernames]
+```
+
 ### Set the target_group variable to the group invite link
 Note: you must be an admin to add people. The script will NOT work if you are not admin.
 ```
@@ -82,6 +88,7 @@ result = await client(InviteToChannelRequest(group,[user]))
 if (result.missing_invitees):
 ```
 This will send just the invite link to everybody and not attempt to add people to group
+
 
 
 
