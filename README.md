@@ -1,6 +1,7 @@
 # Use instructions
 
 THIS ONLY WORKS FOR SUPERGROUPS. Uses your own account to add people. Could result in your account being flagged for spam, so do not remove the await asyncio.sleep() calls
+You must be admin to add people to group, otherwise, read the side note below.  
 
 A 1 minute video on making a group into a supergroup:
 https://www.youtube.com/watch?v=S1bQ3JF4ow0
@@ -81,6 +82,7 @@ result = await client(InviteToChannelRequest(group,[user]))
 if (result.missing_invitees):
 ```
 This will send just the invite link to everybody and not attempt to add people to group
+
 
 
 
